@@ -1,0 +1,9 @@
+{
+  "id": "9cd8d4a1-057e-480e-9df5-800b570451ce",
+  "template": "empty",
+  "modules": {
+    "Qiqiko.Abp.Movie": {
+      "path": "Qiqiko.Abp.Movie.abpmdl"
+    }
+  }
+}

@@ -1,0 +1,16 @@
+﻿{
+  "culture": "en",
+  "texts": {
+    "MyAccount": "My account",
+    "SamplePageMessage": "A sample page for the Movie module",
+    "Movie:00001": "The movie:{0} already exists.",
+    "Movie:00002": "The movie type not exists.",
+    "Movie:00003": "The movie type:{0} already exists.",
+    "Movie:00004": "The movie type is in use and cannot be deleted.",
+    "Movie:00005": "The route key type is incorrect.",
+    "Movie:00006": "The movie does not exist or has been deleted.",
+    "Movie:00007": "The episode does not exist or has been deleted.",
+    "Movie:00008": "The uploaded file does not exist.",
+    "Movie:00009": "The episode:{0} already exists."
+  }
+}

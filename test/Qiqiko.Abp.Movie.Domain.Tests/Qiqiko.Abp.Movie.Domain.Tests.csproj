@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <Import Project="..\..\common.props" />
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <RootNamespace>Qiqiko.Abp.Movie</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.14.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Qiqiko.Abp.Movie.Domain\Qiqiko.Abp.Movie.Domain.csproj" />
+    <ProjectReference Include="..\Qiqiko.Abp.Movie.TestBase\Qiqiko.Abp.Movie.TestBase.csproj" />
+  </ItemGroup>
+
+
+</Project>

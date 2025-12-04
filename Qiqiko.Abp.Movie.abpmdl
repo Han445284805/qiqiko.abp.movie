@@ -1,0 +1,58 @@
+﻿{
+  "folders": {
+    "items": {
+      "src": {},
+      "test": {}
+    }
+  },
+  "packages": {
+    "Qiqiko.Abp.Movie.Installer": {
+      "path": "src/Qiqiko.Abp.Movie.Installer/Qiqiko.Abp.Movie.Installer.abppkg",
+      "folder": "src"
+    },
+    "Qiqiko.Abp.Movie.Domain.Shared": {
+      "path": "src/Qiqiko.Abp.Movie.Domain.Shared/Qiqiko.Abp.Movie.Domain.Shared.abppkg",
+      "folder": "src"
+    },
+    "Qiqiko.Abp.Movie.Domain": {
+      "path": "src/Qiqiko.Abp.Movie.Domain/Qiqiko.Abp.Movie.Domain.abppkg",
+      "folder": "src"
+    },
+    "Qiqiko.Abp.Movie.Application.Contracts": {
+      "path": "src/Qiqiko.Abp.Movie.Application.Contracts/Qiqiko.Abp.Movie.Application.Contracts.abppkg",
+      "folder": "src"
+    },
+    "Qiqiko.Abp.Movie.Application": {
+      "path": "src/Qiqiko.Abp.Movie.Application/Qiqiko.Abp.Movie.Application.abppkg",
+      "folder": "src"
+    },
+    "Qiqiko.Abp.Movie.EntityFrameworkCore": {
+      "path": "src/Qiqiko.Abp.Movie.EntityFrameworkCore/Qiqiko.Abp.Movie.EntityFrameworkCore.abppkg",
+      "folder": "src"
+    },
+    "Qiqiko.Abp.Movie.HttpApi": {
+      "path": "src/Qiqiko.Abp.Movie.HttpApi/Qiqiko.Abp.Movie.HttpApi.abppkg",
+      "folder": "src"
+    },
+    "Qiqiko.Abp.Movie.HttpApi.Client": {
+      "path": "src/Qiqiko.Abp.Movie.HttpApi.Client/Qiqiko.Abp.Movie.HttpApi.Client.abppkg",
+      "folder": "src"
+    },
+    "Qiqiko.Abp.Movie.TestBase": {
+      "path": "test/Qiqiko.Abp.Movie.TestBase/Qiqiko.Abp.Movie.TestBase.abppkg",
+      "folder": "test"
+    },
+    "Qiqiko.Abp.Movie.EntityFrameworkCore.Tests": {
+      "path": "test/Qiqiko.Abp.Movie.EntityFrameworkCore.Tests/Qiqiko.Abp.Movie.EntityFrameworkCore.Tests.abppkg",
+      "folder": "test"
+    },
+    "Qiqiko.Abp.Movie.Domain.Tests": {
+      "path": "test/Qiqiko.Abp.Movie.Domain.Tests/Qiqiko.Abp.Movie.Domain.Tests.abppkg",
+      "folder": "test"
+    },
+    "Qiqiko.Abp.Movie.Application.Tests": {
+      "path": "test/Qiqiko.Abp.Movie.Application.Tests/Qiqiko.Abp.Movie.Application.Tests.abppkg",
+      "folder": "test"
+    }
+  }
+}

@@ -8,6 +8,7 @@
     <RootNamespace>Qiqiko.Abp.Movie</RootNamespace>
 		<GenerateEmbeddedFilesManifest>true</GenerateEmbeddedFilesManifest>
     <Version>10.0.0-rc.2.200</Version>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
 
   <ItemGroup>
@@ -22,6 +23,13 @@
   <ItemGroup>
     <EmbeddedResource Include="Localization\Movie\*.json" />
     <Content Remove="Localization\Movie\*.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>

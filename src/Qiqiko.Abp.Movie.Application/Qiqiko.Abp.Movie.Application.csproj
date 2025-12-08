@@ -7,7 +7,15 @@
     <Nullable>enable</Nullable>
     <RootNamespace>Qiqiko.Abp.Movie</RootNamespace>
 		<Version>10.0.0-rc.2.0.200</Version>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="FFMpegCore" Version="5.4.0" />

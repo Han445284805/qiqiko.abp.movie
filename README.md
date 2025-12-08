@@ -65,6 +65,8 @@ public class MediaDbContext :
   
 后续还有图片和声音，开发中...  
   
+For more information, check out the below links:  
+🔗GitHub Repository: https://github.com/Han445284805/qiqiko.abp.movie  
 答疑qq：445284805  
    
   

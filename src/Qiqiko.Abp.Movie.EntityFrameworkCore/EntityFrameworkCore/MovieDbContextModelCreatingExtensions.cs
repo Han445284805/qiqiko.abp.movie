@@ -14,7 +14,7 @@ public static class MovieDbContextModelCreatingExtensions
         builder.Entity<MovieType>(b =>
         {
             b.ToTable(MovieDbProperties.DbTablePrefix + "MovieType", MovieDbProperties.DbSchema);
-            b.Property(r=>r.Index).HasDefaultValue(0).HasMaxLength(2).HasComment("排序号");
+            b.Property(r => r.Index).HasDefaultValue(0).HasMaxLength(2).HasComment("排序号");
             b.Property(r => r.Name).IsRequired().HasMaxLength(24).HasComment("分类名称");
             b.ConfigureByConvention();
             b.ApplyObjectExtensionMappings();
@@ -31,6 +31,9 @@ public static class MovieDbContextModelCreatingExtensions
             b.Property(r => r.Tags).HasMaxLength(255).HasComment("标签");
             b.Property(r => r.Language).HasMaxLength(10).HasComment("语言");
             b.Property(r => r.Description).HasComment("描述");
+            b.Property(r => r.Rating).HasComment("视频分级");
+            b.Property(r => r.Director).HasComment("导演");
+            b.Property(r => r.ReleaseDate).HasComment("上映日期");
             b.HasOne(r => r.MovieType).WithMany().HasForeignKey(r => r.MovieTypeId).IsRequired(false);
             b.ConfigureByConvention();
             b.ApplyObjectExtensionMappings();

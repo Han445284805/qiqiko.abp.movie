@@ -1,5 +1,4 @@
-﻿using Qiqiko.Abp.Movie;
-using Qiqiko.Abp.Movie.Localization;
+﻿using Qiqiko.Abp.Movie.Localization;
 using System;
 using System.Threading.Tasks;
 using Volo.Abp;

@@ -1,13 +1,8 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-using Qiqiko.Abp.Movie.Localization;
-using Qiqiko.Abp.Movie.Movies;
+﻿using Qiqiko.Abp.Movie.Movies;
 using Shouldly;
 using System;
 using System.Threading.Tasks;
-using Volo.Abp;
-using Volo.Abp.Application.Dtos;
 using Volo.Abp.Domain.Entities;
-using Volo.Abp.Localization;
 using Volo.Abp.Modularity;
 using Volo.Abp.Uow;
 using Volo.Abp.Validation;
@@ -131,7 +126,7 @@ public abstract class EpisodeAppServiceTests<TStartupModule> : MovieApplicationT
             Index = 2,
             MovieId = entity.MovieId,
             Description = entity.Description,
-            ConcurrencyStamp = entity.ConcurrencyStamp 
+            ConcurrencyStamp = entity.ConcurrencyStamp
         };
         // Assert
         var actualException = await Should.ThrowAsync<AbpValidationException>(async () =>

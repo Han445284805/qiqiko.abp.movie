@@ -3,9 +3,7 @@ using FFMpegCore.Enums;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Text;
 using System.Threading.Tasks;
 using Volo.Abp.BackgroundJobs;
 using Volo.Abp.DependencyInjection;
@@ -35,19 +33,19 @@ namespace Qiqiko.Abp.Movie.BackgroundJobs
             if (episode.FFmpegStatus == FFmpegStatus.Finished) return;
 
             //准备文件路径
-            var tempBasePath = options.Value.TempBasePath ?? Path.Combine( AppDomain.CurrentDomain.BaseDirectory, "temp-movie");
+            var tempBasePath = options.Value.TempBasePath ?? Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "temp-movie");
             var filePath = Path.Combine(tempBasePath, episode.TempPath);
-  
+
             //检查是否有相同hash且已经转换成功的
-            var goodEpisode = await repository.FirstOrDefaultAsync(r=>r.Id != episode.Id 
+            var goodEpisode = await repository.FirstOrDefaultAsync(r => r.Id != episode.Id
                                 && r.OriginalHash == episode.OriginalHash
-                                && r.FFmpegStatus== FFmpegStatus.Finished 
-                                && r.M3u8Path != null && r.M3u8Path !=string.Empty);
+                                && r.FFmpegStatus == FFmpegStatus.Finished
+                                && r.M3u8Path != null && r.M3u8Path != string.Empty);
             //有相同hash且已经转换成功的，直接复用
             if (goodEpisode != null)
             {
                 episode.CompletFFmpeg(goodEpisode.M3u8Path);
-                await repository.UpdateAsync(episode,true);
+                await repository.UpdateAsync(episode, true);
                 File.Delete(filePath);
                 return;
             }
@@ -61,15 +59,16 @@ namespace Qiqiko.Abp.Movie.BackgroundJobs
             }
             //调用ffmpeg进行m3u8转换
             await RunFFmpegAsync(filePath, episode.Id.ToString("N"));
-            episode.CompletFFmpeg($"{Path.Combine( episode.Id.ToString("N"), "index.m3u8")}");
+            episode.CompletFFmpeg($"{Path.Combine(episode.Id.ToString("N"), "index.m3u8")}");
             await repository.UpdateAsync(episode, true);
         }
 
-        private async Task RunFFmpegAsync(string inputFilePath,string episodeId)
+        private async Task RunFFmpegAsync(string inputFilePath, string episodeId)
         {
             var outputDirectory = options.Value.M3u8PBasePath ?? Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "movie");
             outputDirectory = Path.Combine(outputDirectory, episodeId);
-            Directory.Delete(outputDirectory,true);
+            if (Directory.Exists(outputDirectory))
+                Directory.Delete(outputDirectory);
             Directory.CreateDirectory(outputDirectory);
 
             var outputM3u8File = Path.Combine(outputDirectory, "index.m3u8");
@@ -83,8 +82,8 @@ namespace Qiqiko.Abp.Movie.BackgroundJobs
                         .WithVideoCodec(VideoCodec.LibX264)
                         .WithAudioCodec(AudioCodec.Aac)
                         .WithConstantRateFactor(21)
-                        .WithVideoFilters(filterOptions => filterOptions.Scale(VideoSize.Hd))
-                        .WithCustomArgument("-hls_time 3 -hls_list_size 0 -f hls"))
+                        //.WithVideoFilters(filterOptions => filterOptions.Scale(VideoSize.Hd)) // 可选：调整视频分辨率
+                        .WithCustomArgument("-hls_time 10 -hls_list_size 0 -f hls"))
                     .ProcessAsynchronously();
 
                 // 验证生成的文件

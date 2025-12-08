@@ -1,7 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Routing;
-using Microsoft.Extensions.DependencyInjection;
-using Shouldly;
+﻿using Shouldly;
 using System;
 using System.Threading.Tasks;
 using Volo.Abp.Modularity;
@@ -91,7 +88,7 @@ public abstract class MovieAppServiceTests<TStartupModule> : MovieApplicationTes
         {
             ConcurrencyStamp = entity.ConcurrencyStamp,
             MovieTypeId = Guid.NewGuid(),
-            Name = "测试影片"+Guid.NewGuid().ToString("N"),
+            Name = "测试影片" + Guid.NewGuid().ToString("N"),
             Description = "Description123",
             Index = 2,
             Language = "zh",
@@ -205,7 +202,7 @@ public abstract class MovieAppServiceTests<TStartupModule> : MovieApplicationTes
             MaxResultCount = 10,
             Sorting = " index ",
             Name = "测试影片11",
-            Performers = "赤夜萌香"
+            Performers = ["赤夜萌香"]
         };
         var result = await _movieAppService.GetListAsync(requestDto);
         //Assert
@@ -222,7 +219,7 @@ public abstract class MovieAppServiceTests<TStartupModule> : MovieApplicationTes
             MaxResultCount = 10,
             Sorting = " index ",
             Name = "测试影片11",
-            Star= "苍井空"
+            Star = ["苍井空"]
         };
         var result = await _movieAppService.GetListAsync(requestDto);
         //Assert

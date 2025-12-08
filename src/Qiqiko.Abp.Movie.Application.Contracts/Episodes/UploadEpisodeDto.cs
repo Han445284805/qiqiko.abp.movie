@@ -9,7 +9,7 @@ public class UploadEpisodeDto : IHasConcurrencyStamp
     /// <summary>
     /// 文件
     /// </summary>
-    [FromForm] 
+    [FromForm]
     public required IFormFile File { get; set; }
     /// <summary>
     /// 时间戳

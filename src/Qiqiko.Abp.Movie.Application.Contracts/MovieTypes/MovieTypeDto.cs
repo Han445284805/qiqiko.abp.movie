@@ -4,7 +4,7 @@ using Volo.Abp.Domain.Entities;
 
 namespace Qiqiko.Abp.Movie.MovieTypes;
 
-public class MovieTypeDto:FullAuditedEntityDto<Guid>, IHasConcurrencyStamp
+public class MovieTypeDto : FullAuditedEntityDto<Guid>, IHasConcurrencyStamp
 {
     /// <summary>
     /// 排序

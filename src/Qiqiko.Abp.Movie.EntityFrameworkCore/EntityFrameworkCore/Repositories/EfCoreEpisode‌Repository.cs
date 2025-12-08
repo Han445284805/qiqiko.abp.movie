@@ -1,5 +1,4 @@
-﻿using Qiqiko.Abp.Movie.EntityFrameworkCore;
-using System;
+﻿using System;
 using Volo.Abp.Domain.Repositories.EntityFrameworkCore;
 using Volo.Abp.EntityFrameworkCore;
 

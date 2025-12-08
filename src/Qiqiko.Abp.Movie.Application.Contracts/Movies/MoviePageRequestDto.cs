@@ -1,11 +1,10 @@
 ﻿using System;
-using System.ComponentModel.DataAnnotations;
+using System.Collections.Generic;
 using Volo.Abp.Application.Dtos;
-using Volo.Abp.Auditing;
 
 namespace Qiqiko.Abp.Movie.Movies;
 
-public class MoviePageRequestDto: PagedAndSortedResultRequestDto
+public class MoviePageRequestDto : PagedAndSortedResultRequestDto
 {
     /// <summary>
     /// 名称
@@ -14,11 +13,11 @@ public class MoviePageRequestDto: PagedAndSortedResultRequestDto
     /// <summary>
     /// 演员
     /// </summary>
-    public string? Performers { get; set; }
+    public List<string>? Performers { get; set; }
     /// <summary>
     /// 主演
     /// </summary>
-    public string? Star { get; set; }
+    public List<string>? Star { get; set; }
     /// <summary>
     /// 视频类型
     /// </summary>
@@ -26,10 +25,22 @@ public class MoviePageRequestDto: PagedAndSortedResultRequestDto
     /// <summary>
     /// 标签
     /// </summary>
-    public  string? Tags { get; set; }
+    public List<string>? Tags { get; set; }
     /// <summary>
     /// 语言
     /// </summary>
-    public string? Language { get; set; }
+    public List<string>? Language { get; set; }
+    /// <summary>
+    /// 视频分级
+    /// </summary>
+    public List<string>? Rating { get; set; }
+    /// <summary>
+    /// 导演
+    /// </summary>
+    public List<string>? Director { get; set; }
+    /// <summary>
+    /// 上映日期
+    /// </summary>
+    public List<DateTime>? ReleaseDate { get; set; }
 
 }

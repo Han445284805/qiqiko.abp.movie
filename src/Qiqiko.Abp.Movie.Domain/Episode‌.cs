@@ -13,39 +13,39 @@ public class Episode‌ : FullAuditedAggregateRoot<Guid>
     /// <summary>
     /// 影片Id
     /// </summary>
-    public virtual Guid MovieId { get;  set; }
+    public virtual Guid MovieId { get; set; }
     /// <summary>
     /// 序号
     /// </summary>
-    public virtual int Index { get;  set; }
+    public virtual int Index { get; set; }
     /// <summary>
     /// 名称
     /// </summary>
     [Required]
-    public virtual string? Name { get;  set; }
+    public virtual string? Name { get; set; }
     /// <summary>
     /// 临时文件路径
     /// </summary>
-    public virtual string? TempPath { get;  set; }
+    public virtual string? TempPath { get; set; }
     /// <summary>
     /// 原文件Hash
     /// </summary>
-    public virtual string? OriginalHash { get;  set; }
+    public virtual string? OriginalHash { get; set; }
     /// <summary>
     /// m3u8路径
     /// </summary>
-    public virtual string? M3u8Path { get;  set; }
+    public virtual string? M3u8Path { get; set; }
     /// <summary>
     /// 切片状态
     /// </summary>
-    public virtual FFmpegStatus FFmpegStatus { get;  set; } = FFmpegStatus.UnUpLoad;
+    public virtual FFmpegStatus FFmpegStatus { get; set; } = FFmpegStatus.UnUpLoad;
     /// <summary>
     /// 描述
     /// </summary>
     [DisableAuditing]
-    public virtual string? Description { get;  set; }
+    public virtual string? Description { get; set; }
 
-    public Episode‌(){}
+    public Episode‌() { }
     public Episode‌(Guid id, Guid movieId, int index, string name, string? description) : base(id)
     {
         MovieId = movieId;

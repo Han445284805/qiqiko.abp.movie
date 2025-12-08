@@ -8,19 +8,16 @@ using System.IO;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Threading.Tasks;
-using Volo.Abp;
-using Volo.Abp.Application.Dtos;
 using Volo.Abp.Application.Services;
 using Volo.Abp.BackgroundJobs;
 using Volo.Abp.Domain.Repositories;
-using Volo.Abp.IO;
 
 namespace Qiqiko.Abp.Movie.Episodes
 {
     public class EpisodeAppService : CrudAppService<Episode‌, Episode‌Dto, Guid, Episode‌PageRequestDto, CreateUpdateEpisode‌Dto>, IEpisode‌AppService
     {
         private readonly IRepository<Movie, Guid> _movieRepository;
-        private readonly IOptions<MovieOptions> options; 
+        private readonly IOptions<MovieOptions> options;
         private readonly IBackgroundJobManager _backgroundJobManager;
 
         public EpisodeAppService(IRepository<Episode‌, Guid> repository, IRepository<Movie, Guid> movieRepository, IOptions<MovieOptions> options, IBackgroundJobManager backgroundJobManager) : base(repository)
@@ -77,7 +74,7 @@ namespace Qiqiko.Abp.Movie.Episodes
             // 获取实体
             var episode = await Repository.GetAsync(id);
             // 更新实体信息
-            episode.SetPath(fileHash, fileName,input.ConcurrencyStamp);
+            episode.SetPath(fileHash, fileName, input.ConcurrencyStamp);
             await Repository.UpdateAsync(episode, true);
             await _backgroundJobManager.EnqueueAsync(new FFmpegEpisodeArgs
             {

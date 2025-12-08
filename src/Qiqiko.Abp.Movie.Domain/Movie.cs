@@ -1,5 +1,4 @@
-﻿using Riok.Mapperly.Abstractions;
-using System;
+﻿using System;
 using System.ComponentModel.DataAnnotations;
 using Volo.Abp.Auditing;
 using Volo.Abp.Domain.Entities.Auditing;
@@ -9,33 +8,33 @@ namespace Qiqiko.Abp.Movie;
 /// <summary>
 /// 影片
 /// </summary>
-public class Movie:FullAuditedAggregateRoot<Guid>
+public partial class Movie : FullAuditedAggregateRoot<Guid>
 {
     /// <summary>
     /// 序号
     /// </summary>
-    public virtual int Index { get;  set; }
+    public virtual int Index { get; set; }
     /// <summary>
     /// 名称
     /// </summary>
     [Required]
-    public virtual string? Name { get;   set; }
+    public virtual string? Name { get; set; }
     /// <summary>
     /// 演员
     /// </summary>
-    public virtual string? Performers { get;   set; }
+    public virtual string? Performers { get; set; }
     /// <summary>
     /// 主演
     /// </summary>
-    public virtual string? Star { get;   set; }
+    public virtual string? Star { get; set; }
     /// <summary>
     /// 视频类型
     /// </summary>
-    public virtual Guid? MovieTypeId { get;   set; }
+    public virtual Guid? MovieTypeId { get; set; }
     /// <summary>
     /// 视频类型
     /// </summary>
-    public virtual MovieType? MovieType { get;  set; }
+    public virtual MovieType? MovieType { get; set; }
     /// <summary>
     /// 总集数
     /// </summary>
@@ -44,18 +43,32 @@ public class Movie:FullAuditedAggregateRoot<Guid>
     /// 标签
     /// </summary>
     [DisableAuditing]
-    public virtual string? Tags { get;   set; }
+    public virtual string? Tags { get; set; }
     /// <summary>
     /// 语言
     /// </summary>
     [DisableAuditing]
-    public virtual string? Language { get;  set; }
+    public virtual string? Language { get; set; }
     /// <summary>
     /// 描述
     /// </summary>
     [DisableAuditing]
-    public virtual string? Description { get;  set; }
-
+    public virtual string? Description { get; set; }
+    /// <summary>
+    /// 视频分级
+    /// </summary>
+    [DisableAuditing]
+    public string? Rating { get; set; }
+    /// <summary>
+    /// 导演
+    /// </summary>
+    [DisableAuditing]
+    public string? Director { get; set; }
+    /// <summary>
+    /// 上映日期
+    /// </summary>
+    [DisableAuditing]
+    public DateTime? ReleaseDate { get; set; }
     public Movie()
     {
 
@@ -74,7 +87,7 @@ public class Movie:FullAuditedAggregateRoot<Guid>
     /// <param name="tags">标签</param>
     /// <param name="language">语言</param>
     /// <param name="description">描述</param>
-    public Movie(Guid id,int index, string name, string? performers, string? star, Guid? movieTypeId, int episodeCount, string? tags, string? language, string? description):base(id)
+    public Movie(Guid id, int index, string name, string? performers, string? star, Guid? movieTypeId, int episodeCount, string? tags, string? language, string? description) : base(id)
     {
         Index = index;
         Name = name;

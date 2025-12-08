@@ -2,8 +2,6 @@
 using System.Threading.Tasks;
 using Volo.Abp.Data;
 using Volo.Abp.DependencyInjection;
-using Volo.Abp.Guids;
-using Volo.Abp.MultiTenancy;
 
 namespace Qiqiko.Abp.Movie;
 
@@ -14,7 +12,7 @@ public class MovieDataSeedContributor : IDataSeedContributor, ITransientDependen
     private readonly IMovieTypeRepository _qiqikoMovieTypeRepository;
     private readonly IEpisodeRepository _qiqikoMovieEpisodeRepository;
 
-    public MovieDataSeedContributor( QiqikoMovieTestData testData, IMovieRepository qiqikoMovieRepository, IMovieTypeRepository qiqikoMovieTypeRepository, IEpisodeRepository qiqikoMovieEpisodeRepository)
+    public MovieDataSeedContributor(QiqikoMovieTestData testData, IMovieRepository qiqikoMovieRepository, IMovieTypeRepository qiqikoMovieTypeRepository, IEpisodeRepository qiqikoMovieEpisodeRepository)
     {
         _testData = testData;
         _qiqikoMovieRepository = qiqikoMovieRepository;
@@ -37,7 +35,7 @@ public class MovieDataSeedContributor : IDataSeedContributor, ITransientDependen
         }
         for (int i = 0; i < 50; i++)
         {
-            await _qiqikoMovieEpisodeRepository.InsertAsync(new Episode‌(Guid.NewGuid(), _testData.MovieId, i+1, $"第{i+2}集", $"这是第{i + 2}集"));
+            await _qiqikoMovieEpisodeRepository.InsertAsync(new Episode‌(Guid.NewGuid(), _testData.MovieId, i + 1, $"第{i + 2}集", $"这是第{i + 2}集"));
         }
     }
 }

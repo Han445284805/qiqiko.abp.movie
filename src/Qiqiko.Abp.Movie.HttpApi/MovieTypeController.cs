@@ -1,12 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Qiqiko.Abp.Movie.Localization;
 using Qiqiko.Abp.Movie.Movies;
 using Qiqiko.Abp.Movie.MovieTypes;
 using System;
 using System.Threading.Tasks;
 using Volo.Abp;
 using Volo.Abp.Application.Dtos;
-using Volo.Abp.AspNetCore.Mvc;
 
 namespace Qiqiko.Abp.Movie;
 
@@ -31,7 +29,7 @@ public class MovieTypeController : QiqikoMovieController
     /// <returns></returns>
     /// <exception cref="NotImplementedException"></exception>
     [HttpPost]
-    public Task<MovieTypeDto> CreateAsync([FromBody] CreateUpdateMovieTypeDto input)=> _qiqikoMovieTypeAppService.CreateAsync(input);
+    public Task<MovieTypeDto> CreateAsync([FromBody] CreateUpdateMovieTypeDto input) => _qiqikoMovieTypeAppService.CreateAsync(input);
 
     /// <summary>
     /// 删除视频分类
@@ -57,7 +55,7 @@ public class MovieTypeController : QiqikoMovieController
     /// <returns></returns>
     /// <exception cref="NotImplementedException"></exception>
     [HttpGet("items")]
-    public Task<PagedResultDto<MovieTypeDto>> GetListAsync([FromQuery]MoviePageRequestDto input) => _qiqikoMovieTypeAppService.GetListAsync(input);
+    public Task<PagedResultDto<MovieTypeDto>> GetListAsync([FromQuery] MoviePageRequestDto input) => _qiqikoMovieTypeAppService.GetListAsync(input);
     /// <summary>
     /// 修改视频分类
     /// </summary>
@@ -66,5 +64,5 @@ public class MovieTypeController : QiqikoMovieController
     /// <returns></returns>
     /// <exception cref="NotImplementedException"></exception>
     [HttpPut("{id}")]
-    public Task<MovieTypeDto> UpdateAsync(Guid id,CreateUpdateMovieTypeDto input) => _qiqikoMovieTypeAppService.UpdateAsync(id, input);
+    public Task<MovieTypeDto> UpdateAsync(Guid id, CreateUpdateMovieTypeDto input) => _qiqikoMovieTypeAppService.UpdateAsync(id, input);
 }

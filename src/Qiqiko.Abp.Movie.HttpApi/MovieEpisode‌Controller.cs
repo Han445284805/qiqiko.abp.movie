@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Qiqiko.Abp.Movie.Movies;
 using Qiqiko.Abp.Movie.Episode‌s;
 using System;
 using System.Threading.Tasks;
@@ -29,7 +28,7 @@ public class MovieEpisode‌Controller : QiqikoMovieController
     /// <returns></returns>
     /// <exception cref="NotImplementedException"></exception>
     [HttpPost]
-    public Task<Episode‌Dto> CreateAsync([FromBody] CreateUpdateEpisode‌Dto input)=> _qiqikoEpisode‌AppService.CreateAsync(input);
+    public Task<Episode‌Dto> CreateAsync([FromBody] CreateUpdateEpisode‌Dto input) => _qiqikoEpisode‌AppService.CreateAsync(input);
 
     /// <summary>
     /// 删除视频分集
@@ -64,7 +63,7 @@ public class MovieEpisode‌Controller : QiqikoMovieController
     /// <returns></returns>
     /// <exception cref="NotImplementedException"></exception>
     [HttpPut("{id}")]
-    public Task<Episode‌Dto> UpdateAsync(Guid id,CreateUpdateEpisode‌Dto input) => _qiqikoEpisode‌AppService.UpdateAsync(id, input);
+    public Task<Episode‌Dto> UpdateAsync(Guid id, CreateUpdateEpisode‌Dto input) => _qiqikoEpisode‌AppService.UpdateAsync(id, input);
     /// <summary>
     /// 上传分集视频文件
     /// </summary>
@@ -74,5 +73,5 @@ public class MovieEpisode‌Controller : QiqikoMovieController
     /// <exception cref="NotImplementedException"></exception>
     [HttpPut("/api/movie-episode/upload/{id}")]
     [RequestSizeLimit(int.MaxValue)]
-    public Task<Episode‌Dto> UploadEpisodeAsync([FromRoute]Guid id, [FromForm]UploadEpisodeDto input) => _qiqikoEpisode‌AppService.UploadEpisodeAsync(id, input);
+    public Task<Episode‌Dto> UploadEpisodeAsync([FromRoute] Guid id, [FromForm] UploadEpisodeDto input) => _qiqikoEpisode‌AppService.UploadEpisodeAsync(id, input);
 }

@@ -11,6 +11,6 @@ public class CreateUpdateMovieTypeDto
     /// <summary>
     /// 名称
     /// </summary>
-    [Required(ErrorMessage ="分类不能为空")]
+    [Required(ErrorMessage = "分类不能为空")]
     public required string Name { get; set; }
 }

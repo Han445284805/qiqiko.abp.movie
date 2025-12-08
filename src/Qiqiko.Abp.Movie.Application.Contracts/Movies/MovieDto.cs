@@ -47,7 +47,19 @@ public class MovieDto : FullAuditedEntityDto<Guid>, IHasConcurrencyStamp
     /// </summary>
     public string? Description { get; set; }
     /// <summary>
+    /// 视频分级
+    /// </summary>
+    public string? Rating { get; set; }
+    /// <summary>
+    /// 导演
+    /// </summary>
+    public string? Director { get; set; }
+    /// <summary>
+    /// 上映日期
+    /// </summary>
+    public DateTime? ReleaseDate { get; set; }
+    /// <summary>
     /// 时间戳
     /// </summary>
-    public required string ConcurrencyStamp { get; set; } 
+    public required string ConcurrencyStamp { get; set; }
 }

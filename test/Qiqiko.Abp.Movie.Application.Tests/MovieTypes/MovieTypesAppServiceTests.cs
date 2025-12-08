@@ -1,5 +1,4 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-using Qiqiko.Abp.Movie.Movies;
+﻿using Qiqiko.Abp.Movie.Movies;
 using Shouldly;
 using System;
 using System.Threading.Tasks;

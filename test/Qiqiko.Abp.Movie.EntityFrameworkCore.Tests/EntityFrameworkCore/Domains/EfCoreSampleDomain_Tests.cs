@@ -1,5 +1,4 @@
 ﻿using Qiqiko.Abp.Movie.Samples;
-using Xunit;
 
 namespace Qiqiko.Abp.Movie.EntityFrameworkCore.Domains;
 

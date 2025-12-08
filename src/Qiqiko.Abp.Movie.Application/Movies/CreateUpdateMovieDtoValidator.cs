@@ -1,6 +1,5 @@
 ﻿using FluentValidation;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.Localization;
 using Qiqiko.Abp.Movie.Localization;
 using System;
@@ -28,18 +27,18 @@ public class CreateUpdateMovieDtoValidator : AbstractValidator<CreateUpdateMovie
 
     private async Task CustomRuleAsync(CreateUpdateMovieDto dto, ValidationContext<CreateUpdateMovieDto> context, CancellationToken token)
     {
-        var id = Util.GetRouteParameter(_httpContextAccessor,"id");
+        var id = Util.GetRouteParameter(_httpContextAccessor, "id");
         if (id.IsNullOrWhiteSpace())
         {
             var existingMovie = await _repository.FirstOrDefaultAsync(r => r.Name == dto.Name, cancellationToken: token);
             if (existingMovie != null)
             {
-                context.AddFailure("Name", string.Format( _localizer[MovieErrorCodes.MovieNameAlreadyExists], dto.Name));
+                context.AddFailure("Name", string.Format(_localizer[MovieErrorCodes.MovieNameAlreadyExists], dto.Name));
             }
         }
         else
         {
-            var isGuid = Guid.TryParse(id,out Guid movieId);
+            var isGuid = Guid.TryParse(id, out Guid movieId);
             if (!isGuid)
             {
                 context.AddFailure("id", _localizer[MovieErrorCodes.RouteIdIsNotGuid]);

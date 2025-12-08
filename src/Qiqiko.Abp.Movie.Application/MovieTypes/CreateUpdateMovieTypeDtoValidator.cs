@@ -1,6 +1,5 @@
 ﻿using FluentValidation;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.Localization;
 using Qiqiko.Abp.Movie.Localization;
 using Qiqiko.Abp.Movie.MovieTypes;
@@ -33,7 +32,7 @@ public class CreateUpdateMovieTypeDtoValidator : AbstractValidator<CreateUpdateM
             var existingMovie = await _repository.FirstOrDefaultAsync(r => r.Name == dto.Name, cancellationToken: token);
             if (existingMovie != null)
             {
-                context.AddFailure("Name", string.Format( _localizer[MovieErrorCodes.MovieTypeNameAlreadyExists], dto.Name));
+                context.AddFailure("Name", string.Format(_localizer[MovieErrorCodes.MovieTypeNameAlreadyExists], dto.Name));
             }
         }
         else
